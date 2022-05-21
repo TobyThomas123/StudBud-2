@@ -1,0 +1,31 @@
+{
+  "name": "studbud",
+  "version": "1.0.0",
+  "description": "Assignment 3 repository",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "prestart": "parcel build ./public/index.html",
+    "dev": "parcel serve ./public/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TobyThomas123/StudBud.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TobyThomas123/StudBud/issues"
+  },
+  "homepage": "https://github.com/TobyThomas123/StudBud#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "sass": "^1.50.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-image": "^2.0.0-rc.0",
+    "autoprefixer": "^10.4.5",
+    "parcel": "^2.0.0-rc.0",
+    "postcss": "^8.4.12"
+  }
+}
