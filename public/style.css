@@ -2,9 +2,16 @@
 
 .Header { grid-area: Header; }
 
+
 .Main { 
   grid-area: Main;
   margin-top: 200px;
+}
+
+.main-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .label {
@@ -1322,7 +1329,9 @@ html, body , .container {
   
   @media all and (max-width: 700px){
   
-    
+    .main-section {
+      display: block;
+    }
   
     /* sizing of the contact form input fields */
   

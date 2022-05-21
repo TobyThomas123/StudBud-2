@@ -6,6 +6,14 @@
   grid-area: Main;
   margin-top: 200px;
 }
+
+.contact-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+
 /*POMODORO TIMER*/
 .container{
   border:1px solid #333;
