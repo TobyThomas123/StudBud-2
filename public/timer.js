@@ -1,89 +1,160 @@
+const pomodoro = document.getElementById("pomodoro");
+const shortBreak = document.getElementById("shortBreak");
+const longBreak = document.getElementById("longBreak");
+const start = document.getElementById("start");
+const pause = document.getElementById("pause");
 
-//Pomodoro timer
+const reset = document.getElementById("reset");
+let displayTime = document.querySelector(".time");
 
-var pomodoro = {
-    started : false,
-    minutes : 0,
-    seconds : 0,
-    fillerHeight : 0,
-    fillerIncrement : 0,
-    interval : null,
-    minutesDom : null,
-    secondsDom : null,
-    fillerDom : null,
-    init : function(){
-      var self = this;
-      this.minutesDom = document.querySelector('#minutes');
-      this.secondsDom = document.querySelector('#seconds');
-      this.fillerDom = document.querySelector('#filler');
-      this.interval = setInterval(function(){
-        self.intervalCallback.apply(self);
-      }, 1000);
-      document.querySelector('#work').onclick = function(){
-        self.startWork.apply(self);
-      };
-      document.querySelector('#shortBreak').onclick = function(){
-        self.startShortBreak.apply(self);
-      };
-      document.querySelector('#longBreak').onclick = function(){
-        self.startLongBreak.apply(self);
-      };
-      document.querySelector('#stop').onclick = function(){
-        self.stopTimer.apply(self);
-      };
-    },
-    resetVariables : function(mins, secs, started){
-      this.minutes = mins;
-      this.seconds = secs;
-      this.started = started;
-      this.fillerIncrement = 200/(this.minutes*60);
-      this.fillerHeight = 0;  
-    },
-    startWork: function() {
-      this.resetVariables(25, 0, true);
-    },
-    startShortBreak : function(){
-      this.resetVariables(5, 0, true);
-    },
-    startLongBreak : function(){
-      this.resetVariables(15, 0, true);
-    },
-    stopTimer : function(){
-      this.resetVariables(25, 0, false);
-      this.updateDom();
-    },
-    toDoubleDigit : function(num){
-      if(num < 10) {
-        return "0" + parseInt(num, 10);
-      }
-      return num;
-    },
-    updateDom : function(){
-      this.minutesDom.innerHTML = this.toDoubleDigit(this.minutes);
-      this.secondsDom.innerHTML = this.toDoubleDigit(this.seconds);
-      this.fillerHeight = this.fillerHeight + this.fillerIncrement;
-      this.fillerDom.style.height = this.fillerHeight + 'px';
-    },
-    intervalCallback : function(){
-      if(!this.started) return false;
-      if(this.seconds == 0) {
-        if(this.minutes == 0) {
-          this.timerComplete();
-          return;
-        }
-        this.seconds = 59;
-        this.minutes--;
-      } else {
-        this.seconds--;
-      }
-      this.updateDom();
-    },
-    timerComplete : function(){
-      this.started = false;
-      this.fillerHeight = 0;
+let timeInSeconds;
+let timerWork;
+let pomodoroTimeInSeconds = "1200";
+let shortBreakTimeInSeconds = "300";
+let longBreakTimeInSeconds = "600";
+let setPomodoroTimeInSeconds;
+
+timeInSeconds = pomodoroTimeInSeconds;
+
+/*SETTINGS**/
+
+const btn = document.getElementById("settings");
+let modal = document.getElementById("modal");
+const submit = document.getElementById("submit");
+let setPomodoro = document.getElementById("setPomodoroTime");
+
+
+let root = document.querySelector(":root");
+let color1 = document.getElementById("color1");
+let color2 = document.getElementById("color2");
+let color3 = document.getElementById("color3");
+let color4 = document.getElementById("color4");
+let color5 = document.getElementById("color5");
+let color6 = document.getElementById("color6");
+let color7 = document.getElementById("color7");
+let color8 = document.getElementById("color8");
+
+let defaultTime = {
+    defaultPomodoro: 20,
+    defaultShort: 5,
+    defaultLong: 10
+};
+
+displayTime.textContent = `${defaultTime.defaultPomodoro}:00`;
+//display time
+
+pomodoro.addEventListener("click", () => {
+
+    clearInterval(timerWork);
+    start.style.display = "block";
+    pause.style.display = "none";
+    reset.style.display = "none";
+
+    displayTime.textContent = `${defaultTime.defaultPomodoro}:00`;
+});
+
+shortBreak.addEventListener("click", () => {
+    shortBreakTimeInSeconds = "300";
+    timeInSeconds = shortBreakTimeInSeconds;
+    
+  
+    clearInterval(timerWork);
+    start.style.display = "block";
+    pause.style.display = "none";
+    reset.style.display = "none";
+
+    if (defaultTime.defaultShort < 10) {
+        displayTime.textContent = `0${defaultTime.defaultShort}:00`;
+    } else {
+        displayTime.textContent = `${defaultTime.defaultShort}:00`;
     }
-};
-window.onload = function(){
-  pomodoro.init();
-};
+});
+
+longBreak.addEventListener("click", () => {
+    longBreakTimeInSeconds = "600";
+    timeInSeconds = longBreakTimeInSeconds;
+    clearInterval(timerWork);
+    start.style.display = "block";
+    pause.style.display = "none";
+    reset.style.display = "none";
+
+    if (defaultTime.defaultLong < 10) {
+        displayTime.textContent = `0${defaultTime.defaultLong}:00`;
+    } else {
+        displayTime.textContent = `${defaultTime.defaultLong}:00`;
+    }
+});
+
+function pomodoroTimer() {
+    const secondsLeft = timeInSeconds;
+    let result = "";
+    const seconds = parseInt(secondsLeft % 60);
+    const minutes = parseInt(secondsLeft / 60) % 60;
+    let hours = parseInt(secondsLeft / 3600);
+
+    function addLeadingZeroes(time) {
+        return time < 10 ? `0${time}` : time;
+    }
+    if (hours > 0) {
+        result += `${hours}:`;
+    }
+    result += `${addLeadingZeroes(minutes)}:${addLeadingZeroes(seconds)}`;
+
+    secondsLeft < "0" ? clearInterval(timerWork) : displayTime.textContent = result.toString();
+}
+
+start.addEventListener("click", () => {
+    clearInterval(timerWork);
+    pause.style.display = "block";
+    reset.style.display = "block";
+    start.style.display = "none";
+    timerWork = setInterval(() => {
+        timeInSeconds--;
+        pomodoroTimer();
+        
+    }, 1000);
+});
+
+pause.addEventListener("click", () => {
+    clearInterval(timerWork);
+    start.style.display = "block";
+});
+
+/*SETTINGS*/
+
+btn.addEventListener("click", displayModal);
+
+function displayModal() {
+    clearInterval(timerWork);
+    pause.style.display = "block";
+    reset.style.display = "block";
+    start.style.display = "none";
+    modal.style.display = "block";
+}
+
+const closeBtn = document.getElementById("close");
+
+closeBtn.addEventListener("click", function closeModal() {
+    modal.style.display = "none";
+});
+
+submit.addEventListener("click", () => {
+    modal.style.display = "none";
+    pause.style.display = "none";
+    reset.style.display = "none";
+    start.style.display = "block";
+
+    setPomodoroTimeInSeconds = (setPomodoro.value) * 60;
+    setPomodoro.value.length === 0 ? timeInSeconds = "1200" : timeInSeconds = setPomodoroTimeInSeconds.toString();
+
+    if (setPomodoro.value < 10 && setPomodoro.value > 0) {
+        displayTime.textContent = `0${setPomodoro.value}:00`;
+    } else if (setPomodoro.value >= 10 && setPomodoro.value < 100) {
+        displayTime.textContent = `${setPomodoro.value}:00`;
+    } else if (setPomodoro.value >= 100) {
+        displayTime.textContent = `${setPomodoro.value}:00`;
+    } else if (setPomodoro.value < 0) {
+        alert("Please enter your time in minutes");
+    }
+});
 

@@ -2,6 +2,12 @@
 
 .Header { grid-area: Header; }
 
+/* POMODORO TIMER */
+
+button {
+  opacity: 100%;
+}
+
 .Main { 
   grid-area: Main;
   margin-top: 200px;
@@ -333,11 +339,20 @@ i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward {
 
 .container-calendar {
 
-  padding: 15px;
-  max-width: auto;
-  max-height: auto;
-  margin: 0 auto;
   overflow: auto;
+  
+  display: flex;
+  width: 80%;
+  top: 30%;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  height: auto;
+  /* position: relative; */
+  background-color: #212020;
+  opacity: 90%;
+  margin: 2.5%;
 }
 
 .button-container-calendar button {
@@ -1732,12 +1747,12 @@ nav.navbar .navigation-content a {
       overflow: visible;
     }
   
-    html {
+    /* html {
       font-family: sans-serif;
       font-size: 15px;
       line-height: 1.4;
       color: #444;
-    }
+    } */
   
     body {
      margin: 0;

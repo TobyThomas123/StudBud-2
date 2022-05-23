@@ -69,23 +69,27 @@
             <div class="about_information">
                 <div class="contact_information">
          
-                  <div id="pomodoro-app">
-                    <div id="container">
-                      <div id="timer">
-                        <div id="time">
-                          <span id="minutes">25</span>
-                          <span id="colon">:</span>
-                          <span id="seconds">00</span>
-                        </div>
-                        <div id="filler"></div>
-                      </div>
+   
                   
-                      <div id="buttons">
-                        <button id="work">Work</button>
-                        <button id="shortBreak">Short Break</button>
-                        <button id="longBreak">Long Break</button>
-                        <button id="stop">Stop</button>
-                      </div>
+
+                    <div class="pomodoro-container">
+                        <div class="mode-btns div1" id="mode-btns">
+                            <button class="btn mode-btn" id="pomodoro"><img src="pomo-start.png"</button>
+                            <button class="btn mode-btn" id="shortBreak">Short break</button>
+                            <button class="btn mode-btn" id="longBreak">Long break</button>
+                        </div>
+
+                        <div class="time-container">
+                            <div class="circle">
+                                <h1 class="time pomodoroTime"></h1>
+                            </div>
+                            <div class="circle1"></div>
+                        </div>
+                        <div class="timer-phase">
+                            <button class="phase" id="pause">Pause</button>
+                            <button class="phase" id="start">Start</button>
+                            <button class="phase" id="reset" onClick="history.go(0)">Reset</button></div>
+
                     </div>
                   </div>
               </div>
@@ -96,6 +100,7 @@
   
   </main>
   <script src="timer.js"></script>
+  <script src="stopwatch.js"></script>
 </body>
 
 </html>
