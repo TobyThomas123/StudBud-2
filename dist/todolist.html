@@ -45,47 +45,51 @@
   <main class="Main">
     <section class="covey-section">
 
-      <form id="taskform">
+      <div id="itemfields">
+
         <label for="task">Task:</label>
-        <input type="text" name="task" id="taskInput">
-  
+        <input type="text" id="taskname">
+    
         <br>
-      <!-- Date input -->
-        <label for="dueDate">Due Date: </label>
-        <input type="date" name="dueDate" id="dueDateInput">
-        
-      <!-- Time input -->
-      <label for="completionTime"></label>
-        <input type="time" name="completionTime" id="completionTimeInput">
-  
+        <!-- Date input -->
+        <label for="date">Due Date: </label>
+        <input type="date" id="duedate">
+    
+        <!-- Time input -->
+        <label for="completionTime"></label>
+        <input type="time" id="timeinput">
+    
         <br>
-  
-      <label for="estimatedTime">Estimated completion time (in mins):</label>
-      <input type="number" name="estimatedTime" id="estimatedTimeInput">
-      <!-- Priority -->
-      <br>
-  
-      <label for="importance">Task Importance:</label>
-      <select name="importance" id="importanceInput">
-        <option value="">Select one</option>
-        <option value="Low">Less Important</option>
-        <option value="High">More Important</option>
-      </select>
-  
-      <br>
-      <label for="urgency">Task Urgency:</label>
-      <select name="urgency" id="urgencyInput">
-        <option value="">Select one</option>
-        <option value="low">Not Urgent</option>
-        <option value="high">Urgent</option>
-      </select>
-  
-      <br>
-  
-        <button type="submit">Submit</button>
-      </form>
-      <ul id="tasklist">
-      </ul>
+    
+        <!-- Priority -->
+    
+    
+        <label for="importance">Task Importance:</label>
+        <select id="importanceinput">
+          <option value="">Select one</option>
+          <option value="less">Less Important</option>
+          <option value="more">More Important</option>
+        </select>
+    
+        <br>
+        <label for="urgency">Task Urgency:</label>
+        <select id="urgencyInput">
+          <option value="">Select one</option>
+          <option value="less">Not Urgent</option>
+          <option value="more">Urgent</option>
+        </select>
+        <br>
+        <button id="itemsubmit">Add to the list</button>
+      </div>
+    
+      <!--
+      This is just a skeleton of the item list. We will add items into that UL using JS
+      -->
+      <div id="itemlist">
+        <ul>
+        </ul>
+      </div>
+    
     </section>
       
       
