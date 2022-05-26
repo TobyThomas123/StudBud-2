@@ -469,12 +469,14 @@ subButton.addEventListener("click", function() {
     let dueDate = document.getElementById("duedate").value;
     let timeInput = document.getElementById("timeinput").value;
     let importanceInput = document.getElementById("importanceinput").value;
+    let urgencyInput = document.getElementById("urgencyinput").value;
     // Make a JS object to contain the data we want to write into local storage for each item. This is nice because we can have one key:value pair as we do here, or 50.
     let itemObj = {
         'taskName': taskName,
         'dueDate': dueDate,
         'timeInput': timeInput,
-        'importanceInput': importanceInput
+        'importanceInput': importanceInput,
+        'urgencyInput': urgencyInput
     };
     // Get the item list from localStorage. This uses a custom function, since we need to do this action in a few different places. See that function for deets of how it works.
     let existingItems = getItems();
@@ -530,6 +532,9 @@ function renderItems() {
         let importanceInput = document.createElement('span');
         importanceInput.setAttribute('class', 'importanceInput');
         importanceInput.innerText = item.importanceInput;
+        let urgencyInput = document.createElement('span');
+        urgencyInput.setAttribute('class', 'urgencyInput');
+        urgencyInput.innerText = item.urgencyInput;
         // Add an element to represent the remove button
         let itemRemove = document.createElement('button');
         itemRemove.setAttribute('class', 'remove');
@@ -545,7 +550,8 @@ function renderItems() {
         itemLi.appendChild(taskName);
         itemLi.appendChild(timeInput);
         itemLi.appendChild(dueDate);
-        itemLi.appendChild(importanceInput);
+        // itemLi.appendChild(importanceInput);
+        // itemLi.appendChild(urgencyInput);
         itemLi.appendChild(itemRemove);
         // Add the li to the ul.
         itemUl.appendChild(itemLi);

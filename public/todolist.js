@@ -16,13 +16,16 @@ subButton.addEventListener("click", function() {
   let dueDate = document.getElementById("duedate").value;
   let timeInput = document.getElementById("timeinput").value;
   let importanceInput = document.getElementById("importanceinput").value;
+  let urgencyInput = document.getElementById("urgencyinput").value;
+
 
   // Make a JS object to contain the data we want to write into local storage for each item. This is nice because we can have one key:value pair as we do here, or 50.
   let itemObj = {
     'taskName': taskName,
     'dueDate': dueDate,
     'timeInput': timeInput,
-    'importanceInput': importanceInput
+    'importanceInput': importanceInput,
+    'urgencyInput': urgencyInput,
   };
 
 
@@ -105,6 +108,10 @@ function renderItems() {
     importanceInput.setAttribute('class', 'importanceInput');
     importanceInput.innerText = item.importanceInput;
 
+    let urgencyInput = document.createElement('span');
+    urgencyInput.setAttribute('class', 'urgencyInput');
+    urgencyInput.innerText = item.urgencyInput;
+
     // Add an element to represent the remove button
     let itemRemove = document.createElement('button');
     itemRemove.setAttribute('class', 'remove');
@@ -124,7 +131,8 @@ function renderItems() {
     itemLi.appendChild(taskName);
     itemLi.appendChild(timeInput);
     itemLi.appendChild(dueDate);
-    itemLi.appendChild(importanceInput);
+    // itemLi.appendChild(importanceInput);
+    // itemLi.appendChild(urgencyInput);
 
     itemLi.appendChild(itemRemove);
 
@@ -144,6 +152,7 @@ function removeItem(taskName) {
     return item.timeInput == timeInput;
     return item.dueDate == dueDate;
     return item.importanceInput == importanceInput;
+    return item.urgencyInput == urgencyInput;
   });
 
   // We've talked about splice() in class before (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice), it removes a specific item out of the array 

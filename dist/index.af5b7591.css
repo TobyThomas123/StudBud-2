@@ -4,6 +4,27 @@
 
 /* TO-DO LIST */
 
+.button.remove {
+  border-radius: 20px;
+}
+
+.li {
+  margin-top: 20%;
+  font-size: 1.5vh;
+  text-align: left;
+}
+
+.ul {
+  margin-top: 20%;
+  font-size: 1.5vh;
+  text-align: left;
+}
+
+#span.taskname {
+  margin-right: 10px;
+  font-size: 1.25rem;
+}
+
 .input#taskInput {
   background-color: #3CBC8D;
   color: white;
@@ -12,8 +33,8 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 
 * {
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -27,17 +48,17 @@ body {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 100;
   font-size: 12px;
-  line-height: 30px;
+  /* line-height: 30px; */
   color: #777;
   background: #4CAF50;
 }
 
-.container {
+/* .container {
   max-width: 400px;
   width: 100%;
   margin: 0 auto;
   position: relative;
-}
+} */
 
 #contact input[type="text"],
 #contact input[type="email"],
@@ -225,8 +246,8 @@ outline: none;
 /* DICTIONARY */
 
 * {
-	padding: 0;
-	margin: 0;
+	/* padding: 0;
+	margin: 0; */
 	box-sizing: border-box;
 }
 
@@ -396,6 +417,7 @@ body {
 .track-artist {
   font-size: 1.5rem;
   color: white;
+  margin-top: 10px;
 }
 
 .buttons {
@@ -403,6 +425,7 @@ body {
   flex-direction: row;
   align-items: center;
   color: white;
+  justify-content: center;
 }
 
 .playpause-track, .prev-track, .next-track {
@@ -418,11 +441,12 @@ body {
 }
 
 .slider_container {
-  width: 75%;
+
   max-width: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0;
 }
 
 /* Modify the appearance of the slider */
@@ -598,128 +622,6 @@ color: green;
     "Main";
 }
 
-body {
-    background-color: lightgreen;
-  
-    /* Smoothly transition the background color */
-    transition: background-color .5s;
-  }
-
-.player {
-    height: 95vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-.details {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 25px;
-  }
-
-.track-art {
-    margin: 25px;
-    height: 250px;
-    width: 250px;
-    background-image: url("https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
-    background-size: cover;
-    border-radius: 15%;
-  }
-
-.now-playing {
-    font-size: 1rem;
-    color: white;
-  }
-
-.track-name {
-    color: white;
-    font-size: 3rem;
-  }
-
-.track-artist {
-    color: white;
-    font-size: 1.5rem;
-  }
-
-.buttons {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-.playpause-track, .prev-track, .next-track {
-    padding: 25px;
-    opacity: 0.8;
-  
-    /* Smoothly transition the opacity */
-    transition: opacity .2s;
-  }
-
-.playpause-track:hover, .prev-track:hover, .next-track:hover {
-    opacity: 1.0;
-  }
-
-.slider_container {
-    width: 75%;
-    max-width: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-/* Modify the appearance of the slider */
-
-.seek_slider, .volume_slider {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    height: 5px;
-    background: black;
-    opacity: 0.7;
-    transition: opacity .2s;
-  }
-
-/* Modify the appearance of the slider thumb */
-
-.seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    background: white;
-    cursor: pointer;
-    border-radius: 50%;
-  }
-
-.seek_slider:hover, .volume_slider:hover {
-    opacity: 1.0;
-  }
-
-.seek_slider {
-    width: 60%;
-  }
-
-.volume_slider {
-    width: 30%;
-  }
-
-.current-time, .total-duration {
-    padding: 10px;
-  }
-
-i.fa-volume-down, i.fa-volume-up {
-    padding: 10px;
-  }
-
-i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward {
-    cursor: pointer;
-  }
-
 /* Most important elements of text, etc */
 
 html, body , .container {
@@ -730,6 +632,9 @@ html, body , .container {
   }
 
 .button {
+    -webkit-appearance: manual;
+       -moz-appearance: manual;
+            appearance: manual;
     fill: #212020;
     height: 50px;
     border: black;
@@ -1085,7 +990,6 @@ textarea.input {
   border-radius: 20px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 10;
   opacity: 90%;
 
 }
@@ -1135,7 +1039,7 @@ textarea.input {
 .volunteer_information {
     text-align: center;
     background-color: #212020;
-    color: black;
+    color: white;
     -webkit-text-decoration-color: black;
             text-decoration-color: black;
     /* top: 30%;
@@ -1146,9 +1050,10 @@ textarea.input {
     border-radius: 20px;
     padding-left: 40px;
     padding-right: 40px;
-    padding-top: 10;
+
     opacity: 90%;
-    margin: 0 2.5%;
+    margin: 0 5%;
+
   }
 
 .volunteer_donate {
@@ -1472,6 +1377,10 @@ nav.navbar .navigation-content a {
     .main-section {
       display: block;
     }
+
+    .main {
+      margin-top: 100px;
+    }
   
     /* sizing of the contact form input fields */
   
@@ -1574,7 +1483,25 @@ nav.navbar .navigation-content a {
       flex-wrap: wrap;
     }
 
-    
+    .volunteer_information {
+      text-align: center;
+      background-color: #212020;
+      color: white;
+      -webkit-text-decoration-color: black;
+              text-decoration-color: black;
+      /* top: 30%;
+      left: 5%; */
+      /* position: absolute; */
+      /* width: 30%; */
+      /* height: auto; */
+      border-radius: 20px;
+      padding-left: 40px;
+      padding-right: 40px;
+      opacity: 90%;
+      margin: 0 5%;
+      margin-top: 5%;
+  
+    }
     
  .contact_information {
     text-align: center;
@@ -1592,7 +1519,7 @@ nav.navbar .navigation-content a {
     border-radius: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 10;
+
     opacity: 90%;
     margin-left: 5%;
     margin-right: 5%;
@@ -1606,7 +1533,7 @@ nav.navbar .navigation-content a {
       border-radius: 20px;
       justify-content: center;
       align-items: center;
-      padding: 15px;
+      padding: 10px;
       height: auto;
       /* position: relative; */
       background-color: #212020;
@@ -1765,6 +1692,10 @@ nav.navbar .navigation-content a {
 @media all and (max-width: 450px){
   
    /* sizing of the contact form input fields */
+
+   .main {
+    margin-top: 100px;
+  }
     
     textarea.input {
       min-width: 100px;
