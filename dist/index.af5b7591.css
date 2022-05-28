@@ -1028,12 +1028,16 @@ textarea.input {
     border-radius: 20px;
     padding-left: 40px;
     padding-right: 40px;
-    padding-top: 10;
-    padding-bottom: 10;
+    padding-top: 10px;
+    padding-bottom: 10px;
     opacity: 90%;
     margin: 0 5%;
     margin-top: 5%;
   
+  }
+
+.th, td {
+    padding: 0;
   }
 
 .volunteer_information {
@@ -1074,24 +1078,19 @@ textarea.input {
     opacity: 90%;
   }
 
-.library {
+.covey-table {
     background-color: #212020;
-    color: black;
-    -webkit-text-decoration-color: black;
-            text-decoration-color: black;
-    left: 5%;
-    right: 5%;
+    color: white;
     display: flex;
-    width:auto;
+    width: 90%;
     height: auto;
     border-radius: 20px;
     padding-left: 40px;
     padding-right: 40px;
-    padding-top: 10;
-    padding-bottom: 10;
+    padding-bottom: 10px;
     opacity: 90%;
-    margin: 0 5%;
-    margin-top: 5%;
+    margin: 5%;
+    margin-top: 2.5%;
   }
 
 /* Download button in library */
@@ -1392,35 +1391,25 @@ nav.navbar .navigation-content a {
   
     /* various library page features */
   
-    .library {
+    .covey-table {
       background-color: #212020;
-      color: black;
-      -webkit-text-decoration-color: black;
-              text-decoration-color: black;
+      color: white;
       top: 28%;
-      margin: 0 0%;
-  
       width: auto;
       height: auto;
       border-radius: 20px;
       padding-left: 10px;
       padding-right: 10px;
-      padding-top: 10;
-      padding-bottom: 10;
+      padding-top: 10px;
+      padding-bottom: 10px;
       opacity: 90%;
-    }
-  
-  
-  
-  
-    .library {
       margin-top: 30%;
       width: 90%;
     }
   
     .table {
       padding: 10px;
-      width:90;
+      width: 90%;
     }
   
     h7 {
@@ -1719,7 +1708,7 @@ nav.navbar .navigation-content a {
    
     }
   
-    .library {
+    .covey-table {
       margin-top: 30%;
     }
   

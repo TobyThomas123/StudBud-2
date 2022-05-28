@@ -554,7 +554,7 @@ function renderItems() {
         // itemLi.appendChild(urgencyInput);
         listLi.appendChild(itemRemove);
         // Add the li to the ul.
-        itemUl.appendChild(listLi);
+        itemUl.appendChild(itemLi);
     });
 }
 // Removes a specific item, by name from local storage.
@@ -572,4 +572,4 @@ function removeItem(taskName) {
     localStorage.setItem('items', items);
 }
 
-//# sourceMappingURL=todolist.f6526840.js.map
+//# sourceMappingURL=index.f6526840.js.map

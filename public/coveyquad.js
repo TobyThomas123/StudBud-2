@@ -20,7 +20,7 @@ subButton.addEventListener("click", function() {
 
 
   // Make a JS object to contain the data we want to write into local storage for each item. This is nice because we can have one key:value pair as we do here, or 50.
-  let listObj = {
+  let itemObj = {
     'taskName': taskName,
     'dueDate': dueDate,
     'timeInput': timeInput,
@@ -33,7 +33,7 @@ subButton.addEventListener("click", function() {
   let existingItems = getItems();
 
   // Add the new item onto the end of the list.
-  existingItems.push(listObj);
+  existingItems.push(itemObj);
 
 
   // Local storage can only store strings, while we want to store an array. To get around this, we use JSON.stringify (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify).
@@ -76,19 +76,26 @@ function renderItems() {
   // Find the UL element within the #itemlist DIV.
   let itemUl = document.querySelector('#itemlist ul');
 
+  let moreImpMoreUrgUL = document.querySelector('#more-important-more-urgent ul')
+  let lessImpMoreUrgUL = document.querySelector('#less-important-more-urgent ul')
 
+  let moreImpLessUrgUL = document.querySelector('#more-important-less-urgent ul')
+  let lessImpLessUrgUL = document.querySelector('#less-important-less-urgent ul')
 
   // Clear the contents of the UL to rebuild it fresh.
   
   itemUl.innerHTML = ""; // <-- this is the one time I'm okay with you using innerHTML. Otherwise build the DOM elements properly and don't concatenate strings :)
 
-
+  moreImpMoreUrgUL.innerHTML = "";
+  lessImpMoreUrgUL.innerHTML = "";
+  moreImpLessUrgUL.innerHTML = "";
+  lessImpLessUrgUL.innerHTML = "";
 
   // forEach is like a shorthand for() loop. It runs the internal function once per item in the array.
   items.forEach(function(item) {
 
     // Create a li DOM element to hold each item
-    let listLi = document.createElement('li');
+    let itemLi = document.createElement('li');
 
     // Now we could just set innerText or innerHTML to hold the item name, but if we want to have more than one variable displayed, this gets messy fast. Don't do this, it's poor practice and the code ends up clumsy and hard to maintain.
     // itemLi.innerHTML = "<strong>" + item.itemName + "</strong>";
@@ -125,7 +132,7 @@ function renderItems() {
     // Add an event handler to the remove button. To make this work properly we need to do two things. Remove the DOM element from the document _AND_ remove the correct item from the local storage list.
     itemRemove.addEventListener("click", function() {
       // This allows us to remove the list li element directly which takes care of the visual removal.
-      listLi.remove();
+      itemLi.remove();
 
       // And the custom removeItem function helps us to remove it from local storage.
       removeItem(item.taskName);
@@ -133,17 +140,31 @@ function renderItems() {
     });
 
     // Add the name and remove button to the li
-    listLi.appendChild(taskName);
-    listLi.appendChild(timeInput);
-    listLi.appendChild(dueDate);
+    itemLi.appendChild(taskName);
+    itemLi.appendChild(timeInput);
+    itemLi.appendChild(dueDate);
     // itemLi.appendChild(importanceInput);
     // itemLi.appendChild(urgencyInput);
 
-    listLi.appendChild(itemRemove);
+    itemLi.appendChild(itemRemove);
 
     // Add the li to the ul.
-    itemUl.appendChild(listLi);
+    itemUl.appendChild(itemLi);
 
+
+    if(item.importanceInput==="more"){
+      if(item.urgencyInput==="more"){
+        moreImpMoreUrgUL.appendChild(itemLi);
+      }else{
+        moreImpLessUrgUL.appendChild(itemLi);
+      }
+    }else{
+      if(item.urgencyInput==="less"){
+        lessImpLessUrgUL.appendChild(itemLi);
+      }else{
+        lessImpMoreUrgUL.appendChild(itemLi);
+      }
+    }
   });
 }
 
