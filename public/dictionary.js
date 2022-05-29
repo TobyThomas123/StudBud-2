@@ -3,7 +3,6 @@
 const url = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 const result = document.getElementById("result");
 
-
 const btn = document.getElementById("search-btn");
 btn.addEventListener("click", () => {
 	let inpWord = document.getElementById("inp-word").value;
@@ -31,8 +30,9 @@ btn.addEventListener("click", () => {
 
 		})
 		.catch((error) => {
-			result.innerHTML = `<h3 class="error">Couldn't Find The Word!</h3>`;
+			result.innerHTML = `<h3 class="error">Word not found...</h3>`;
 		});
 });
-
-console.log(result);
+function playSound() {
+	sound.play();
+}

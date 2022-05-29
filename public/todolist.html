@@ -21,27 +21,41 @@
     <nav class="Header"></nav>
 
 
-  <!-- navigation bar-->
-  <nav class="navbar">
-    <div class="logo-image">
-      <a href="index.html">
-        <img src="../studbud.png" class="img-fluid">
-      </a>
-    </div>
+ <!-- navigation bar-->
+ <nav class="navbar">
+  <div class="logo-image">
+    <a href="index.html">
+      <img src="../studbud.png" class="img-fluid">
+    </a>
+    
+  </div>
 
-        <div class="navigation-content">
-          <a href="calendar.html"><br>Calendar</a>
-          <a href="todolist.html"><br>To-Do List</a>
-          <a href="timer.html"><br>Timer</a>
-          <a href="Music.html"><br>Music</a>
-          </div>
+      <div class="navigation-content">
+        
+        <a href="calendar.html"><br>Calendar</a>
+        <a href="todolist.html"><br>To-Do List</a>
+        <a href="timer.html"><br>Timer</a>
+        <a href="Music.html"><br>Music</a>
         </div>
-  </nav>
+
+
+<!-- DICTIONARY -->
+<div class="dictionary-wrapper">
+  <div class="dictionary-container">
+    <div class="search-box">
+      <input type="text" placeholder="Search the dictionary" id="inp-word" />
+      <button id="search-btn">Search</button>
+    </div>
+  <div id="result" class="result"></div>
+</div>
+</div>
+      
+</nav>
 
         
 
      
-  <!-- main information box -->
+
   <main class="Main">
     <section class="covey-section">
 
@@ -144,6 +158,7 @@
   </main>
   <script src="coveyquad.js"></script>
   <script src="todolist.js"></script>
+  <script src="dictionary.js"></script>
 </body>
 
 </html>

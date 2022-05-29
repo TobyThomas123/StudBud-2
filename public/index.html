@@ -35,23 +35,16 @@
           <a href="Music.html"><br>Music</a>
           </div>
 
-
+<!-- DICTIONARY -->
           <div class="dictionary-wrapper">
-            <div class="dictionary-container">
-              <div class="search-box">
-                <input type="text" placeholder="Search the dictionary" id="inp-word" />
-                <button id="search-btn">Search</button>
-              </div>
-              <div id="result" class="result"></div>
-            </div>
+              <div class="dictionary-container">
+		            <div class="search-box">
+			            <input type="text" placeholder="Search the dictionary" id="inp-word" />
+			            <button id="search-btn">Search</button>
+		            </div>
+		          <div id="result" class="result"></div>
+	          </div>
           </div>
-
-
-
-          
-        </div>
-
-        
   </nav>
 
         
@@ -61,7 +54,7 @@
   <!-- to-do box -->
   <main class="Main">
     <section class="main-section">
-      <div class="contact_information">
+      <div class="list-container">
         <h1 style="text-align:center"><strong> To-Do List</strong></h1>
         <div id="itemlist">
           <ul>
@@ -70,55 +63,56 @@
       </div>
        
        <!-- Music box -->
-       <div class="container-contact">
-        <div class="wrap-contact">
-  
-            <!-- Define the section for displaying details -->
-            <div class="details">
-              <div class="now-playing">PLAYING x OF y</div>
-              <div class="track-art"></div>
-              <div class="track-name">Track Name</div>
-              <div class="track-artist">Track Artist</div>
-            </div>
-          
-            <!-- Define the section for displaying track buttons -->
-            <div class="buttons">
-              <div class="prev-track" onclick="prevTrack()">
-                <i class="fa fa-step-backward fa-2x"></i>
-              </div>
-              <div class="playpause-track" onclick="playpauseTrack()">
-                <i class="fa fa-play-circle fa-5x"></i>
-              </div>
-              <div class="next-track" onclick="nextTrack()">
-                <i class="fa fa-step-forward fa-2x"></i>
-              </div>
-            </div>
-          
-            <!-- Define the section for displaying the seek slider-->
-            <div class="slider_container">
-              <div class="current-time">00:00</div>
-              <input type="range" min="1" max="100"
-                value="0" class="seek_slider" onchange="seekTo()">
-              <div class="total-duration">00:00</div>
-            </div>
-          
-            <!-- Define the section for displaying the volume slider-->
-            <div class="slider_container">
-              <i class="fa fa-volume-down"></i>
-              <input type="range" min="1" max="100"
-                value="99" class="volume_slider" onchange="setVolume()">
-              <i class="fa fa-volume-up"></i>
-            
-          </div>
-          
+<div class="container-music">
+  <div class="wrap-music">
+
+      <!-- Define the section for displaying details -->
+      <div class="details">
+        <div class="now-playing">PLAYING x OF y</div>
+        <div class="track-art"></div>
+        <div class="track-name">Track Name</div>
+        <div class="track-artist">Track Artist</div>
+      </div>
+    
+      <!-- Define the section for displaying track buttons -->
+      <div class="buttons">
+        <div class="prev-track" onclick="prevTrack()">
+          <i class="fa fa-step-backward fa-2x"></i>
+        </div>
+        <div class="playpause-track" onclick="playpauseTrack()">
+          <i class="fa fa-play-circle fa-5x"></i>
+        </div>
+        <div class="next-track" onclick="nextTrack()">
+          <i class="fa fa-step-forward fa-2x"></i>
+        </div>
+      </div>
+    
+      <!-- Define the section for displaying the seek slider-->
+      <div class="slider_container">
+        <div class="current-time">00:00</div>
+        <input type="range" min="1" max="100"
+          value="0" class="seek_slider" onchange="seekTo()">
+        <div class="total-duration">00:00</div>
+      </div>
+    
+      <!-- Define the section for displaying the volume slider-->
+      <div class="slider_container">
+        <i class="fa fa-volume-down"></i>
+        <input type="range" min="1" max="100"
+          value="99" class="volume_slider" onchange="setVolume()">
+        <i class="fa fa-volume-up"></i>
       
-      </div>
-      </div>
+    </div>
+    
+
+</div>
+</div>
+
 
     <!-- Stopwatch -->
 
 
-          <div class="volunteer_information">
+          <div class="stopwatch-section">
 
               <h1>Stopwatch</h1>
               <p><span id="seconds">00</span>:<span id="tens">00</span></p>
@@ -157,11 +151,12 @@
 
   
 
-  <script src="timer.js"></script>
+  <script src="dictionary.js"></script>
   <script src="todolist.js"></script>
   <script src="music.js"></script>
+  <script src="timer.js"></script>
   <script src="stopwatch.js"></script>
-  <script src="dictionary.js"></script>
+
 </body>
 
 </html>
