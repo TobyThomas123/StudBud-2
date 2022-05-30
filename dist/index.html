@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>StudBud</title>
-	<link rel="icon" href="/studbud.52fab076.png">
+	<link rel="icon" href="/favicon.4d547519.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 	<link href="/index.af5b7591.css" rel="stylesheet" type="text/css">
 	<!-- <link href="main.scss" /> -->
@@ -54,6 +54,7 @@
   <!-- to-do box -->
   <main class="Main">
     <section class="main-section">
+
       <div class="list-container">
         <h1 style="text-align:center"><strong> To-Do List</strong></h1>
         <div id="itemlist">
@@ -99,11 +100,9 @@
         <i class="fa fa-volume-down"></i>
         <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
         <i class="fa fa-volume-up"></i>
-      
-    </div>
-    
+      </div>
 
-</div>
+  </div>
 </div>
 
 
@@ -113,33 +112,42 @@
           <div class="stopwatch-section">
 
               <h1>Stopwatch</h1>
-              <p><span id="seconds">00</span>:<span id="tens">00</span></p>
+              <p id="stopwatch"><span id="seconds">00</span>:<span id="tens">00</span></p>
               <button id="button-start">Start</button>
               <button id="button-stop">Stop</button>
               <button id="button-reset">Reset</button>
             
-          
-              <div class="pomodoro-container">
-                <div class="mode-btns div1" id="mode-btns">
-                    <button class="btn mode-btn" id="pomodoro"><img src="/pomo-start.f6bd560f.png" <="" button="">
-                    </button><button class="btn mode-btn" id="shortBreak">Short break</button>
-                    <button class="btn mode-btn" id="longBreak">Long break</button>
-                </div>
+          <!-- POMODORO -->
 
-                <div class="time-container">
-                    <div class="circle">
-                        <h1 class="time pomodoroTime"></h1>
-                    </div>
-                    <div class="circle1"></div>
-                </div>
-                <div class="timer-phase">
-                    <button class="phase" id="pause">Pause</button>
-                    <button class="phase" id="start">Start</button>
-                    <button class="phase" id="reset" onclick="history.go(0)">Reset</button></div>
+  
+            <h1>Pomodoro Timer</h1>
+              <div class="mode-btns div1" id="mode-btns">
+                  <button class="btn mode-btn" id="pomodoro">Pomodoro</button>
+                  <button class="btn mode-btn" id="shortBreak">Short break</button>
+                  <button class="btn mode-btn" id="longBreak">Long break</button>
+              </div>
 
-            </div>
+              <div class="time-container">
+                      <h1 class="time pomodoroTime" style="font-size: 80px;">la</h1>
+              </div>
+              <div class="timer-phase">
+     
+                  
 
-    </div>
+                  <button class="phase" id="pause"><img id="butn" src="/pause.358db2d3.png"></button>
+                  <button class="phase" id="start"><img id="butn" src="/start.8d1b4294.png"></button>
+                  <button class="phase" id="reset" onclick="history.go(0)"><img id="butn" src="/reset.158a0568.png"></button>
+                
+              </div>
+
+          </div>
+
+
+
+
+
+
+
     </section>
       
       

@@ -464,7 +464,7 @@ btn.addEventListener("click", ()=>{
     fetch(`${url}${inpWord}`).then((response)=>{
         return response.json();
     }).then((data)=>{
-        result.innerHTML = `\n  <div class="word">\n    <h3>${inpWord}</h3>\n\n  </div>\n  <div class="details">\n    <p>${data[0].meanings[0].partOfSpeech}</p>\n    <p>/${data[0].phonetic}/</p>\n  </div>\n  <p class="word-meaning">\n    ${data[0].meanings[0].definitions[0].definition}\n  </p>\n  <p class="word-example">${data[0].meanings[0].definitions[0].example || ""}</p>\n  `;
+        result.innerHTML = `\n  <div class="word">\n    <h3>${inpWord}</h3>\n\n  </div>\n  <div class="details">\n\n <button id="dictionaryClose">Close</button> \n\n\n    <p>${data[0].meanings[0].partOfSpeech}</p>\n    <p>/${data[0].phonetic}/</p>\n  </div>\n\n  <p class="word-meaning">\n    ${data[0].meanings[0].definitions[0].definition}\n  </p>\n  <p class="word-example">${data[0].meanings[0].definitions[0].example || ""}</p>\n  `;
     }).catch((error)=>{
         result.innerHTML = `<h3 class="error">Word not found...</h3>`;
     });
@@ -472,5 +472,9 @@ btn.addEventListener("click", ()=>{
 function playSound() {
     sound.play();
 }
+const closBtn = document.getElementById("dictionaryClose");
+closBtn.addEventListener("click", ()=>{
+    console.log("close button working");
+});
 
 //# sourceMappingURL=music.a97ea274.js.map

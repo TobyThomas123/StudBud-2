@@ -3,6 +3,10 @@
 const url = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 const result = document.getElementById("result");
 
+
+
+
+
 const btn = document.getElementById("search-btn");
 btn.addEventListener("click", () => {
 	let inpWord = document.getElementById("inp-word").value;
@@ -17,9 +21,14 @@ btn.addEventListener("click", () => {
 
   </div>
   <div class="details">
+
+ <button id="dictionaryClose">Close</button> 
+
+
     <p>${data[0].meanings[0].partOfSpeech}</p>
     <p>/${data[0].phonetic}/</p>
   </div>
+
   <p class="word-meaning">
     ${data[0].meanings[0].definitions[0].definition}
   </p>
@@ -33,6 +42,15 @@ btn.addEventListener("click", () => {
 			result.innerHTML = `<h3 class="error">Word not found...</h3>`;
 		});
 });
+
+
 function playSound() {
 	sound.play();
 }
+
+const closBtn= document.getElementById("dictionaryClose");
+
+	closBtn.addEventListener("click", () => {
+	console.log("close button working");
+	
+});

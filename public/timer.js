@@ -18,7 +18,7 @@ timeInSeconds = pomodoroTimeInSeconds;
 
 /*SETTINGS**/
 
-const btn = document.getElementById("settings");
+const bttn = document.getElementById("settings");
 let modal = document.getElementById("modal");
 const submit = document.getElementById("submit");
 let setPomodoro = document.getElementById("setPomodoroTime");
@@ -46,9 +46,9 @@ displayTime.textContent = `${defaultTime.defaultPomodoro}:00`;
 pomodoro.addEventListener("click", () => {
 
     clearInterval(timerWork);
-    start.style.display = "block";
-    pause.style.display = "none";
-    reset.style.display = "none";
+    // start.style.display = "block";
+    // pause.style.display = "none";
+    // reset.style.display = "none";
 
     displayTime.textContent = `${defaultTime.defaultPomodoro}:00`;
 });
@@ -59,9 +59,9 @@ shortBreak.addEventListener("click", () => {
     
   
     clearInterval(timerWork);
-    start.style.display = "block";
-    pause.style.display = "none";
-    reset.style.display = "none";
+    // start.style.display = "block";
+    // pause.style.display = "none";
+    // reset.style.display = "none";
 
     if (defaultTime.defaultShort < 10) {
         displayTime.textContent = `0${defaultTime.defaultShort}:00`;
@@ -74,9 +74,9 @@ longBreak.addEventListener("click", () => {
     longBreakTimeInSeconds = "600";
     timeInSeconds = longBreakTimeInSeconds;
     clearInterval(timerWork);
-    start.style.display = "block";
-    pause.style.display = "none";
-    reset.style.display = "none";
+    // start.style.display = "block";
+    // pause.style.display = "none";
+    // reset.style.display = "none";
 
     if (defaultTime.defaultLong < 10) {
         displayTime.textContent = `0${defaultTime.defaultLong}:00`;
@@ -105,9 +105,9 @@ function pomodoroTimer() {
 
 start.addEventListener("click", () => {
     clearInterval(timerWork);
-    pause.style.display = "block";
-    reset.style.display = "block";
-    start.style.display = "none";
+    // pause.style.display = "block";
+    // reset.style.display = "block";
+    // start.style.display = "none";
     timerWork = setInterval(() => {
         timeInSeconds--;
         pomodoroTimer();
@@ -117,12 +117,12 @@ start.addEventListener("click", () => {
 
 pause.addEventListener("click", () => {
     clearInterval(timerWork);
-    start.style.display = "block";
+    // start.style.display = "block";
 });
 
 /*SETTINGS*/
 
-btn.addEventListener("click", displayModal);
+bttn.addEventListener("click", displayModal);
 
 function displayModal() {
     clearInterval(timerWork);
@@ -132,9 +132,9 @@ function displayModal() {
     modal.style.display = "block";
 }
 
-const closeBtn = document.getElementById("close");
+const closedBtn = document.getElementById("closed");
 
-closeBtn.addEventListener("click", function closeModal() {
+closedBtn.addEventListener("click", function closedModal() {
     modal.style.display = "none";
 });
 

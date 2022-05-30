@@ -509,13 +509,13 @@ function renderItems() {
     // Use our custom getItems() function to retrieve info from local storage.
     let items = getItems();
     // Find the UL element within the #itemlist DIV.
-    let itemUl = document.querySelector('#itemlist ul');
+    // let itemUl = document.querySelector('#itemlist ul');
     let moreImpMoreUrgUL = document.querySelector('#more-important-more-urgent ul');
     let lessImpMoreUrgUL = document.querySelector('#less-important-more-urgent ul');
     let moreImpLessUrgUL = document.querySelector('#more-important-less-urgent ul');
     let lessImpLessUrgUL = document.querySelector('#less-important-less-urgent ul');
     // Clear the contents of the UL to rebuild it fresh.
-    itemUl.innerHTML = ""; // <-- this is the one time I'm okay with you using innerHTML. Otherwise build the DOM elements properly and don't concatenate strings :)
+    // itemUl.innerHTML = ""; // <-- this is the one time I'm okay with you using innerHTML. Otherwise build the DOM elements properly and don't concatenate strings :)
     moreImpMoreUrgUL.innerHTML = "";
     lessImpMoreUrgUL.innerHTML = "";
     moreImpLessUrgUL.innerHTML = "";
@@ -562,7 +562,7 @@ function renderItems() {
         // itemLi.appendChild(urgencyInput);
         itemLi.appendChild(itemRemove);
         // Add the li to the ul.
-        itemUl.appendChild(itemLi);
+        // itemUl.appendChild(itemLi);
         if (item.importanceInput === "more") {
             if (item.urgencyInput === "more") moreImpMoreUrgUL.appendChild(itemLi);
             else moreImpLessUrgUL.appendChild(itemLi);

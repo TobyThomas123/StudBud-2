@@ -96,13 +96,13 @@
         <button id="itemsubmit">Add to the list</button>
       </div>
     
-      <!--
-      This is just a skeleton of the item list. We will add items into that UL using JS
-      -->
+<!--     
       <div id="itemlist">
         <ul>
         </ul>
-      </div>
+      </div> -->
+
+
     </section>
 
     </main></div>
@@ -112,8 +112,11 @@
     <style>
       table {
         border-collapse: collapse;
-        width: 90%;
+        width: 100%;
+        height: 100%;
         font-size: 30px;
+        /* display: flex; */
+        justify-content: center;
       }
 
       th, td {
@@ -126,14 +129,23 @@
       thead {
         background-color: none;
         padding: 5px;
+        display:flex;
       }
 
       tr:nth-child(even) {background-color: #6F716F;}
 
+      @media all and (max-width: 700px){
+
+        th, td {
+
+          line-height: 30px;
+        }
+      }
+
     
 </style>
 
-  <table style="width:auto">
+  <table>
      <thead>
       <th><h2><em>Covey Quadrants</em></h2></th>
       <th style=""><em>More Urgent</em></th>
@@ -163,4 +175,3 @@
 </tr></table></div></body>
 
 </html>
-<!-- //remember to link to main.scss// -->
