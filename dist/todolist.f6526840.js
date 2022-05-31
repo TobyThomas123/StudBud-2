@@ -521,7 +521,7 @@ function renderItems() {
         // Instead we create more elements to separate things using proper markup.
         // Create a span element to hold the name of the item.
         let taskName = document.createElement('span');
-        taskName.setAttribute('class', 'taskname'); // We can set classes so CSS can target it nicely later.
+        taskName.setAttribute('class', 'taskName'); // We can set classes so CSS can target it nicely later.
         taskName.innerText = item.taskName; // And we just put the text into this span, and nothing else.
         let dueDate = document.createElement('span');
         dueDate.setAttribute('class', 'dueDate'); // We can set classes so CSS can target it nicely later.
@@ -538,9 +538,18 @@ function renderItems() {
         // Add an element to represent the remove button
         let itemRemove = document.createElement('button');
         itemRemove.setAttribute('class', 'remove');
-        itemRemove.innerText = 'x'; // You can CSS this later to be pretty
+        itemRemove.innerText = 'X';
+        let itemComplete = document.createElement('button');
+        itemComplete.setAttribute('class', 'complete');
+        itemComplete.innerText = 'V';
         // Add an event handler to the remove button. To make this work properly we need to do two things. Remove the DOM element from the document _AND_ remove the correct item from the local storage list.
         itemRemove.addEventListener("click", function() {
+            // This allows us to remove the list li element directly which takes care of the visual removal.
+            listLi.remove();
+            // And the custom removeItem function helps us to remove it from local storage.
+            removeItem(item.taskName);
+        });
+        itemComplete.addEventListener("click", function() {
             // This allows us to remove the list li element directly which takes care of the visual removal.
             listLi.remove();
             // And the custom removeItem function helps us to remove it from local storage.
