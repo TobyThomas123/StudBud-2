@@ -2,6 +2,8 @@
 
 # StudBud - A learning assistance tool for children and students with concentration and learning difficulties.
 
+The first few commits were in my other repository which had to be abandoned due to technical issues. Drew assisted with this.
+
 __Note: Mobile version works best in iPhone XR mode in Chrome__ <br>
 __Desktop version tested in Chrome on 13 inch MacBook Pro__
 __Music player was tempremental in Chrome, but Safari definitely works__

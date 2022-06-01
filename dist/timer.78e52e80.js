@@ -467,7 +467,7 @@ let timeInSeconds;
 let timerWork;
 let pomodoroTimeInSeconds = "1200";
 let shortBreakTimeInSeconds = "300";
-let longBreakTimeInSeconds = "600";
+let longBreakTimeInSeconds = "1800";
 let setPomodoroTimeInSeconds;
 timeInSeconds = pomodoroTimeInSeconds;
 /*SETTINGS*/ const bttn = document.getElementById("settings");
@@ -487,7 +487,7 @@ let color8 = document.getElementById("color8");
 let defaultTime = {
     defaultPomodoro: 20,
     defaultShort: 5,
-    defaultLong: 10
+    defaultLong: 30
 };
 displayTime.textContent = `${defaultTime.defaultPomodoro}:00`;
 //display time
@@ -510,15 +510,15 @@ shortBreak.addEventListener("click", ()=>{
     if (defaultTime.defaultShort < 10) displayTime.textContent = `0${defaultTime.defaultShort}:00`;
     else displayTime.textContent = `${defaultTime.defaultShort}:00`;
 });
-//Sets the timer to the 10min timer when clicked
+//Sets the timer to the 30min timer when clicked
 longBreak.addEventListener("click", ()=>{
-    longBreakTimeInSeconds = "600";
+    longBreakTimeInSeconds = "1800";
     timeInSeconds = longBreakTimeInSeconds;
     clearInterval(timerWork);
     // start.style.display = "block";
     // pause.style.display = "none";
     // reset.style.display = "none";
-    if (defaultTime.defaultLong < 10) displayTime.textContent = `0${defaultTime.defaultLong}:00`;
+    if (defaultTime.defaultLong < 30) displayTime.textContent = `0${defaultTime.defaultLong}:00`;
     else displayTime.textContent = `${defaultTime.defaultLong}:00`;
 });
 //Counts down

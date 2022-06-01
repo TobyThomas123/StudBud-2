@@ -998,7 +998,7 @@ button#itemsubmit:focus {
   opacity: 50%;
 }
 
-input#taskname, input[type="date"], input[type="time"] {
+input#taskname, input[type="date"], input[type="time"], input[type="number"] {
   width: 75%;
   margin: 5px 15px;
   height: 35px;
