@@ -2,6 +2,7 @@
 
 window.onload = function () {
   
+  //creates all variables needed for buttons etc
     var seconds = 00; 
     var tens = 00; 
     var appendTens = document.getElementById("tens")
@@ -11,6 +12,7 @@ window.onload = function () {
     var buttonReset = document.getElementById('button-reset');
     var Interval ;
   
+    //Clears and starts the timer
     buttonStart.onclick = function() {
       
       clearInterval(Interval);
@@ -30,7 +32,7 @@ window.onload = function () {
         appendSeconds.innerHTML = seconds;
     }
     
-     
+     //Begins counting and displaying using if statements
     
     function startTimer () {
       tens++; 

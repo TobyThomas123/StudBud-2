@@ -1,11 +1,9 @@
-////////////////////////////////////////
-// This code runs in global scope. It gets executed when the <script> tag in the HTML is loaded.
-////////////////////////////////////////
+//This code is based on Drew Cosgrove's local storage demo. See references.
 
 // Bind an event to the submit button to capture information from the form and store it into localStorage.
 let subButton = document.getElementById("itemsubmit");
 
-// Render the items from local storage so the page appears correct when it loads.
+// Render the items 
 renderItems();
 
 // The event listener gets bound to the submit button and the contents of the internal function are run when the button is clicked.
@@ -19,7 +17,7 @@ subButton.addEventListener("click", function() {
   let urgencyInput = document.getElementById("urgencyinput").value;
 
 
-  // Make a JS object to contain the data we want to write into local storage for each item. This is nice because we can have one key:value pair as we do here, or 50.
+  // Make a JS object 
   let listObj = {
     'taskName': taskName,
     'dueDate': dueDate,
@@ -29,14 +27,14 @@ subButton.addEventListener("click", function() {
   };
 
 
-  // Get the item list from localStorage. This uses a custom function, since we need to do this action in a few different places. See that function for deets of how it works.
+  // Get the item list from localStorage. 
   let existingItems = getItems();
 
   // Add the new item onto the end of the list.
   existingItems.push(listObj);
 
 
-  // Local storage can only store strings, while we want to store an array. To get around this, we use JSON.stringify (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify).
+  // Local storage can only store strings, while we want to store an array.
   existingItems = JSON.stringify(existingItems);
 
   // And finally we write the JSON string into local storage.
@@ -46,22 +44,20 @@ subButton.addEventListener("click", function() {
   renderItems();
 });
 
-////////////////////////////////////////
-// Now we have some custom functions to handle tasks we have to do in order to make all this work.
-////////////////////////////////////////
+//FUNCTIONS BELOW
 
-// getItems should be fairly self explanatory. It gets items from local storage!
+// Gets items from local storage!
 function getItems() {
   // Check to see if we have any item items in local storage already
   let items = localStorage.getItem('items');
 
-  // If the value of the items variable is `null` then we have not created or used localStorage yet. If this is true, we create an empty array and return that to the code that ran getItems(). 
+  
   if (items == null) {
     return [];
   }
 
-  // If we are still here, then we do have items in the list, or the list is empty.
-  // Either way, we convert that information back into an array using JSON.parse (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse), this is the opposite action to JSON.stringify.
+ 
+  
   items = JSON.parse(items);
 
   // Return the list of items back to the code that ran this function.
@@ -80,20 +76,17 @@ function renderItems() {
 
   // Clear the contents of the UL to rebuild it fresh.
   
-  itemUl.innerHTML = ""; // <-- this is the one time I'm okay with you using innerHTML. Otherwise build the DOM elements properly and don't concatenate strings :)
+  itemUl.innerHTML = ""; 
 
 
 
-  // forEach is like a shorthand for() loop. It runs the internal function once per item in the array.
+  // Runs the internal function once per item in the array.
   items.forEach(function(item) {
 
     // Create a li DOM element to hold each item
     let listLi = document.createElement('li');
 
-    // Now we could just set innerText or innerHTML to hold the item name, but if we want to have more than one variable displayed, this gets messy fast. Don't do this, it's poor practice and the code ends up clumsy and hard to maintain.
-    // itemLi.innerHTML = "<strong>" + item.itemName + "</strong>";
-
-    // Instead we create more elements to separate things using proper markup.
+    
 
     // Create a span element to hold the name of the item.
 
@@ -127,7 +120,7 @@ function renderItems() {
     itemComplete.setAttribute('class', 'complete');
     itemComplete.innerText = 'V'; 
 
-    // Add an event handler to the remove button. To make this work properly we need to do two things. Remove the DOM element from the document _AND_ remove the correct item from the local storage list.
+    // Add an event handler to the remove button. 
     itemRemove.addEventListener("click", function() {
       // This allows us to remove the list li element directly which takes care of the visual removal.
       listLi.remove();
@@ -162,10 +155,10 @@ function renderItems() {
 
 // Removes a specific item, by name from local storage.
 function removeItem(taskName) {
-  // Use our custom getItems() function to retrieve info from local storage. Since we need to do this in a few places, see how the custom function is more efficient?
+  // Use our custom getItems() function to retrieve info from local storage. 
   let items = getItems();
 
-  // This helps us to find the array index for the item that we want to remove. It compares the information we pass in (via the itemName variable) to the information in the objects within the array. If it matches, we get a number back - i.e. items[3].
+  // This helps us to find the array index for the item that we want to remove. 
   let itemIndex = items.findIndex(function(item) {
     return item.taskName == taskName;
     return item.timeInput == timeInput;
@@ -174,7 +167,7 @@ function removeItem(taskName) {
     return item.urgencyInput == urgencyInput;
   });
 
-  // We've talked about splice() in class before (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice), it removes a specific item out of the array 
+  
   items.splice(itemIndex, 1);
 
   // Now we do the same process of writing information back into local storage that we did earlier.

@@ -1,3 +1,8 @@
+
+
+//Sets up the variables for the the breaks and the timers themselves as well as the buttons
+
+
 const pomodoro = document.getElementById("pomodoro");
 const shortBreak = document.getElementById("shortBreak");
 const longBreak = document.getElementById("longBreak");
@@ -16,14 +21,14 @@ let setPomodoroTimeInSeconds;
 
 timeInSeconds = pomodoroTimeInSeconds;
 
-/*SETTINGS**/
+/*SETTINGS*/
 
 const bttn = document.getElementById("settings");
 let modal = document.getElementById("modal");
 const submit = document.getElementById("submit");
 let setPomodoro = document.getElementById("setPomodoroTime");
 
-
+//Most of this bit wasn't used in final version
 let root = document.querySelector(":root");
 let color1 = document.getElementById("color1");
 let color2 = document.getElementById("color2");
@@ -43,6 +48,8 @@ let defaultTime = {
 displayTime.textContent = `${defaultTime.defaultPomodoro}:00`;
 //display time
 
+//Sets the timer to the 25min pomodoro when clicked
+
 pomodoro.addEventListener("click", () => {
 
     clearInterval(timerWork);
@@ -52,7 +59,7 @@ pomodoro.addEventListener("click", () => {
 
     displayTime.textContent = `${defaultTime.defaultPomodoro}:00`;
 });
-
+//Sets the timer to the 5min timer when clicked
 shortBreak.addEventListener("click", () => {
     shortBreakTimeInSeconds = "300";
     timeInSeconds = shortBreakTimeInSeconds;
@@ -69,7 +76,7 @@ shortBreak.addEventListener("click", () => {
         displayTime.textContent = `${defaultTime.defaultShort}:00`;
     }
 });
-
+//Sets the timer to the 10min timer when clicked
 longBreak.addEventListener("click", () => {
     longBreakTimeInSeconds = "600";
     timeInSeconds = longBreakTimeInSeconds;
@@ -84,7 +91,7 @@ longBreak.addEventListener("click", () => {
         displayTime.textContent = `${defaultTime.defaultLong}:00`;
     }
 });
-
+//Counts down
 function pomodoroTimer() {
     const secondsLeft = timeInSeconds;
     let result = "";

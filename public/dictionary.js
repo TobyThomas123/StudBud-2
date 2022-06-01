@@ -6,7 +6,8 @@ const result = document.getElementById("result");
 
 
 
-
+//creates the search button
+//then creates a new div to put the definition in
 const btn = document.getElementById("search-btn");
 btn.addEventListener("click", () => {
 	let inpWord = document.getElementById("inp-word").value;
@@ -20,9 +21,10 @@ btn.addEventListener("click", () => {
     <h3>${inpWord}</h3>
 
   </div>
-  <div class="details">
 
- <button id="dictionaryClose">Close</button> 
+
+
+  <div class="details">
 
 
     <p>${data[0].meanings[0].partOfSpeech}</p>
@@ -36,7 +38,7 @@ btn.addEventListener("click", () => {
 			data[0].meanings[0].definitions[0].example || ""
 		}</p>
   `;
-
+//Presents an error message if the word isn't found
 		})
 		.catch((error) => {
 			result.innerHTML = `<h3 class="error">Word not found...</h3>`;
@@ -48,9 +50,4 @@ function playSound() {
 	sound.play();
 }
 
-const closBtn= document.getElementById("dictionaryClose");
 
-	closBtn.addEventListener("click", () => {
-	console.log("close button working");
-	
-});

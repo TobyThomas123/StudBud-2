@@ -457,6 +457,7 @@ function hmrAcceptRun(bundle, id) {
 },{}]},["hHP6M"], null, "parcelRequire60da")
 //stopwatch
 window.onload = function() {
+    //creates all variables needed for buttons etc
     var seconds = 0;
     var tens = 0;
     var appendTens = document.getElementById("tens");
@@ -465,6 +466,7 @@ window.onload = function() {
     var buttonStop = document.getElementById('button-stop');
     var buttonReset = document.getElementById('button-reset');
     var Interval;
+    //Clears and starts the timer
     buttonStart.onclick = function() {
         clearInterval(Interval);
         Interval = setInterval(startTimer, 10);
@@ -479,6 +481,7 @@ window.onload = function() {
         appendTens.innerHTML = tens;
         appendSeconds.innerHTML = seconds;
     };
+    //Begins counting and displaying using if statements
     function startTimer() {
         tens++;
         if (tens <= 9) appendTens.innerHTML = "0" + tens;

@@ -61,16 +61,16 @@
 
       <div id="itemfields">
 
-        <label for="task">Task:</label>
+        <label for="task">Task Name:</label>
         <input type="text" id="taskname">
     
         <br>
         <!-- Date input -->
-        <label for="date">Due Date: </label>
+        <label for="date">Due Date:</label>
         <input type="date" id="duedate">
-    
+        <br>
         <!-- Time input -->
-        <label for="completionTime"></label>
+        <label for="completionTime">Due Time:</label>
         <input type="time" id="timeinput">
     
         <br>
@@ -108,7 +108,7 @@
     </div>
     <div class="covey-table"> 
         
-
+<!-- Styling for the table which I couldn't get to work properly in CSS. Sorry! -->
     <style>
       table {
         border-collapse: collapse;
@@ -132,7 +132,9 @@
 
       }
 
-      tr:nth-child(even) {background-color: #6F716F;}
+      tr:nth-child(:only-child) {background-color: #6F716F;}
+      td:nth-child(even) {background-color: #6F716F;}
+      td#more-important-less-urgent {background-color: #6F716F;}
 
       @media all and (max-width: 700px){
 

@@ -466,7 +466,7 @@ currentMonth = today.getMonth();
 currentYear = today.getFullYear();
 selectYear = document.getElementById("year");
 selectMonth = document.getElementById("month");
-// createYear = generate_year_range(1970, 2050);
+// createYear = generate_year_range(1970, 2050) This generates the number of years available in the calendar
 createYear = generate_year_range(1970, currentYear);
 document.getElementById("year").innerHTML = createYear;
 var calendar = document.getElementById("calendar");
@@ -554,10 +554,10 @@ if (lang == "en") {
 var $dataHead = "<tr>";
 for(dhead in days)$dataHead += "<th data-days='" + days[dhead] + "'>" + days[dhead] + "</th>";
 $dataHead += "</tr>";
-//alert($dataHead);
 document.getElementById("thead-month").innerHTML = $dataHead;
 monthAndYear = document.getElementById("monthAndYear");
 showCalendar(currentMonth, currentYear);
+//These control the buttons which allow the user to switch months and years
 function next() {
     currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
     currentMonth = (currentMonth + 1) % 12;
@@ -580,7 +580,7 @@ function showCalendar(month, year) {
     monthAndYear.innerHTML = months[month] + " " + year;
     selectYear.value = year;
     selectMonth.value = month;
-    // creating all cells
+    // Creates the cells for all the days 
     var date = 1;
     for(var i = 0; i < 6; i++){
         var row = document.createElement("tr");

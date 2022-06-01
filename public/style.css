@@ -2,10 +2,9 @@
 
 .Header { grid-area: Header; }
 
-
-
-
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+
+/* MOST IMPORTANT AND UNIVERSAL ELEMENTS */
 
 * {
   /* margin: 0;
@@ -62,7 +61,7 @@ button {
 
 .label {
 color: white;
-font-size: 1.2vh;
+font-size: 1.5vw;
 }
 
 
@@ -91,6 +90,10 @@ button.complete {
   color: white;
 }
 
+
+
+/* TO-DO LIST ON THE HOMEPAGE */
+
 .li {
   margin-top: 20%;
   text-align: left;
@@ -112,6 +115,10 @@ span.dueDate {
   font-size: 30px;
 }
 
+span.timeInput {
+  margin-right: 10px;
+  font-size: 30px;
+}
 
 .input#taskInput {
   background-color: #3CBC8D;
@@ -951,7 +958,7 @@ p {
   left: 5%;
   right: 5%;
   display: flex;
-
+  max-width: 380px;
   height: auto;
   border-radius: 20px;
   padding-left: 40px;
@@ -965,7 +972,65 @@ p {
   margin-right: 20px;
   margin-bottom: 10px;
 }
-  
+
+/* INPUT FORM */
+
+button#itemsubmit {
+  background-color: transparent;
+  border: 2px solid rgb(0, 144, 7);
+  border-radius: 0.6em;
+  color: rgb(0, 144, 7);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 5px;
+  margin-top: 20px;
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+button#itemsubmit:hover,
+button#itemsubmit:focus {
+  opacity: 50%;
+}
+
+input#taskname, input[type="date"], input[type="time"] {
+  width: 75%;
+  margin: 5px 15px;
+  height: 35px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background: #e8ebed;
+  color: #576366;
+  font-size: 14px;
+}
+
+
+
+select#importanceinput, #urgencyinput {
+
+  padding: 5px 15px;
+  width: 75%;
+  margin: 5px 15px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background: #e8ebed;
+  color: #576366;
+  font-size: 14px;
+  height: 35px;
+      
+
+ }
+
+
 /* .covey-table {
   background-color: #212020;
   color: white;
@@ -1004,6 +1069,7 @@ p {
   height: 100%;
   font-size: 30px;
   padding: 10px;
+  border: 1px solid #000000;
 }
 
 .th, td {
@@ -1195,7 +1261,7 @@ nav.navbar .navigation-content a {
   }
 
   .Main {
-    margin-top: 75px;
+    margin-top: 14px;
   }
   
     /* sizing of the contact form input fields */
@@ -1238,14 +1304,15 @@ nav.navbar .navigation-content a {
     width: auto;
     height: auto;
     border-radius: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
     opacity: 90%;
     margin-top: 0px;
     margin-left: 20px;
     margin-right: 20px;
+    overflow-x: auto;
 
   }
   
@@ -1306,6 +1373,7 @@ nav.navbar .navigation-content a {
     /* width: 25%; */
     height: auto;
     margin-top: 50px;
+    margin-bottom: 20px;
     width: 90%;
     border-radius: 20px;
     padding-left: 20px;
@@ -1343,7 +1411,7 @@ nav.navbar .navigation-content a {
     width: 90%;  
     /* left: 35%;  */
     display: flex;
-    top: 30%;
+    margin-top: 30px;
     border-radius: 20px;
     justify-content: center;
     align-items: center;
@@ -1353,7 +1421,7 @@ nav.navbar .navigation-content a {
     background-color: #212020;
     opacity: 90%;
     margin: 0 5%;
-    margin-top: 5%
+
   }
   
 
@@ -1571,46 +1639,7 @@ nav.navbar .navigation-content a {
       margin-top: 2vw;
     
     }    
-    .contact-info {
-      font-size: 10px;
-      margin: auto;
-      opacity: 0%;
-      display: none;
-    }
-  
-    .contact-info-2 {
-      opacity: 100%;
-      float: none;
-      text-align: center;
-      width: 100%;
-      left: 0%;
-      right: 0%;
-      top: 75px;
-      margin: auto;
-      justify-content: center;
-      z-index: -1;
-    }
-  
-  
-    .information {
-      text-align: justify;
-      background-color: #212020;
-      color: black;
-      text-decoration-color: black;
-      top: 35%;
-      position: absolute;
-      margin: auto;
-      width: 90%;
-      left: 0%;
-      right: 0%;
-      height: auto;
-      border-radius: 20px;
-      padding-left: 20px;
-      padding-right: 20px;
-      padding-top: 10;
-      opacity: 90%;
-      overflow: visible;
-    }
+
   
     /* html {
       font-family: sans-serif;
@@ -1621,8 +1650,13 @@ nav.navbar .navigation-content a {
   
     body {
      margin: 0;
-
+     margin-top: 110px;
      font-size: 1em;
+    }
+    div.container {
+      margin-top: 140px;
+      height: auto;
+      display: block;
     }
   
   }

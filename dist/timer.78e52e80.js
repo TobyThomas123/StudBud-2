@@ -455,6 +455,7 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}]},["2izrc"], null, "parcelRequire60da")
+//Sets up the variables for the the breaks and the timers themselves as well as the buttons
 const pomodoro = document.getElementById("pomodoro");
 const shortBreak = document.getElementById("shortBreak");
 const longBreak = document.getElementById("longBreak");
@@ -469,10 +470,11 @@ let shortBreakTimeInSeconds = "300";
 let longBreakTimeInSeconds = "600";
 let setPomodoroTimeInSeconds;
 timeInSeconds = pomodoroTimeInSeconds;
-/*SETTINGS**/ const bttn = document.getElementById("settings");
+/*SETTINGS*/ const bttn = document.getElementById("settings");
 let modal = document.getElementById("modal");
 const submit = document.getElementById("submit");
 let setPomodoro = document.getElementById("setPomodoroTime");
+//Most of this bit wasn't used in final version
 let root = document.querySelector(":root");
 let color1 = document.getElementById("color1");
 let color2 = document.getElementById("color2");
@@ -489,6 +491,7 @@ let defaultTime = {
 };
 displayTime.textContent = `${defaultTime.defaultPomodoro}:00`;
 //display time
+//Sets the timer to the 25min pomodoro when clicked
 pomodoro.addEventListener("click", ()=>{
     clearInterval(timerWork);
     // start.style.display = "block";
@@ -496,6 +499,7 @@ pomodoro.addEventListener("click", ()=>{
     // reset.style.display = "none";
     displayTime.textContent = `${defaultTime.defaultPomodoro}:00`;
 });
+//Sets the timer to the 5min timer when clicked
 shortBreak.addEventListener("click", ()=>{
     shortBreakTimeInSeconds = "300";
     timeInSeconds = shortBreakTimeInSeconds;
@@ -506,6 +510,7 @@ shortBreak.addEventListener("click", ()=>{
     if (defaultTime.defaultShort < 10) displayTime.textContent = `0${defaultTime.defaultShort}:00`;
     else displayTime.textContent = `${defaultTime.defaultShort}:00`;
 });
+//Sets the timer to the 10min timer when clicked
 longBreak.addEventListener("click", ()=>{
     longBreakTimeInSeconds = "600";
     timeInSeconds = longBreakTimeInSeconds;
@@ -516,6 +521,7 @@ longBreak.addEventListener("click", ()=>{
     if (defaultTime.defaultLong < 10) displayTime.textContent = `0${defaultTime.defaultLong}:00`;
     else displayTime.textContent = `${defaultTime.defaultLong}:00`;
 });
+//Counts down
 function pomodoroTimer() {
     const secondsLeft = timeInSeconds;
     let result = "";
